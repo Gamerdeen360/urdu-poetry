@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>گلدستۂ سخن</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf3e3;--fg:#2a1c10;--card:#f2e4c4;--accent:#9c3d1a;--mute:#7a6650;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a130d;--fg:#f4e8d0;--card:#2a2016;--accent:#e8935f;--mute:#b8a58c}}
+:root[data-theme="dark"]{--bg:#1a130d;--fg:#f4e8d0;--card:#2a2016;--accent:#e8935f;--mute:#b8a58c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Noto Naskh Arabic",serif;text-align:center}
+header{padding:28px 16px 8px}
+h1{margin:0;font-size:2.4rem;color:var(--accent);line-height:2}
+.en{font-family:system-ui,sans-serif;direction:ltr;color:var(--mute);font-size:.9rem;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 12px}
+nav button{font-family:inherit;font-size:1rem;background:var(--card);color:var(--fg);border:0;border-radius:999px;padding:6px 18px;cursor:pointer}
+nav button.on{background:var(--accent);color:#fff}
+main{max-width:640px;margin:0 auto;padding:0 14px 40px;display:grid;gap:14px}
+.c{background:var(--card);border-radius:14px;padding:18px 14px 14px;position:relative}
+.c p{margin:0;font-size:1.25rem;line-height:2.3}
+.c p+p{margin-top:2px}
+.n{position:absolute;top:8px;left:12px;font-family:system-ui,sans-serif;font-size:.8rem;color:var(--mute)}
+.t{display:block;margin-top:6px;font-size:.85rem;color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+<h1>گلدستۂ سخن</h1>
+<p class="en">50 original Urdu couplets in the classical tradition</p>
+</header>
+<nav id="nav"></nav>
+<main id="list"></main>
+<script>
+const P={
+"عشق":[
+["ترے خیال سے روشن ہے خلوتِ جاں بھی","ترے جمال سے رنگیں ہے شامِ ہجراں بھی"],
+["عشق نے جب سے دل میں گھر کیا ہے","ہم نے خود کو بھی در بدر کیا ہے"],
+["وہ آئے تو بہار آئی، گئے تو خزاں ٹھہری","مرے دل کی ہر اک رت انہی سے جواں ٹھہری"],
+["نگاہِ ناز نے دل کو اسیر کر ڈالا","ہزار بار کا سودا حقیر کر ڈالا"],
+["محبت میں یہ کیسا امتحاں ہے","کہ ہر اک سانس بھی بارِ گراں ہے"],
+["میں نے چاہا کہ تجھ سے دور رہوں","دل نے مانا نہیں، مجبور رہوں"],
+["تیری چاہت کا یہ ثمر دیکھا","ہر گلی میں تجھے ادھر دیکھا"],
+["ہر کلی میں ترا جمال ملا","ہر نظر میں ترا خیال ملا"],
+["عاشقی میں یہ حال ہوتا ہے","دل کو ہر دم ملال ہوتا ہے"],
+["تیری الفت نے ہم کو مار دیا","عمر بھر کا سکوں بھی ہار دیا"]],
+"ہجر":[
+["شامِ ہجراں نے وہ سماں باندھا","اشک آنکھوں میں بے کراں باندھا"],
+["وہ نہ آیا تو انتظار رہا","عمر بھر دل بھی بے قرار رہا"],
+["کٹ گئی رات تیری یاد کے ساتھ","دن بھی گزرا ہے اک فریاد کے ساتھ"],
+["دل کی بستی اجڑ گئی تجھ بن","ہر خوشی بھی بچھڑ گئی تجھ بن"],
+["آنسوؤں کا یہ سلسلہ کیا ہے","جانے تیرا مرا گلہ کیا ہے"],
+["دور تک خامشی کا ڈیرا ہے","دل میں اب تک ترا بسیرا ہے"],
+["ہجر کی رات کا سفر دیکھو","آنکھ میں خواب کا کھنڈر دیکھو"],
+["خط ترے جب بھی پڑھ لیے ہم نے","زخمِ دل پھر ہرے کیے ہم نے"],
+["رات روتی ہے، دن سسکتا ہے","دل اکیلا ہی بس دھڑکتا ہے"],
+["اس کی گلیوں سے جب گزرتا ہوں","اپنے ہی آپ سے بچھڑتا ہوں"]],
+"زندگی":[
+["زندگی اک عجب کہانی ہے","ہر گھڑی کی الگ نشانی ہے"],
+["عمر گزری ہے اک سراب کے ساتھ","جاگتے رہ گئے ہم خواب کے ساتھ"],
+["جو ملا، اُس پہ شکر کرتا ہوں","جو نہ پایا، اُسی پہ مرتا ہوں"],
+["گرتے گرتے سنبھل گیا ہوں میں","ٹھوکروں سے بدل گیا ہوں میں"],
+["ہر چمک ایک دن فنا ہو گی","بس دعا ہی مری دوا ہو گی"],
+["غم نے ہم کو بہت سکھایا ہے","ہر خسارے میں کچھ کمایا ہے"],
+["بچپنے کی وہ بارشیں کیا تھیں","ماں کی وہ نوازشیں کیا تھیں"],
+["کیا ملے گا یہ دل لگانے سے","وقت گزرا ہے بس بہانے سے"],
+["سادگی میں بڑا قرینہ ہے","سیدھے رستے پہ ہی سفینہ ہے"],
+["دوستی کا مزاج کیا کہیے","دل کے رشتوں کا راج کیا کہیے"]],
+"فطرت":[
+["صبح نے چاندنی کو الوداع کہا","پھول نے شبنمی کو الوداع کہا"],
+["چاند نکلا تو رات روشن ہے","آسماں بھی بہت ہی گلشن ہے"],
+["بادلوں کا سماں سہانا ہے","بوند کا نغمہ عاشقانہ ہے"],
+["پھول کی پتیوں پہ شبنم ہے","ہر کلی میں بہار کا دم ہے"],
+["ندیوں کی روانی دیکھی ہے","شام کی مہربانی دیکھی ہے"],
+["کوہساروں پہ برف پڑتی ہے","دل کی وادی میں آگ بڑھتی ہے"],
+["باغ میں پھول مسکرانے لگے","شاخ پر پنچھی گانے لگے"],
+["چاندنی میں عجب سکوں پایا","رات نے دل کو نغمگیں پایا"],
+["برکھا رت کا سماں ہے تیرے بن","ہر طرف دھواں دھواں ہے تیرے بن"],
+["ریگزاروں میں دھوپ جلتی ہے","پیاس کی آگ دل میں پلتی ہے"]],
+"تصوف":[
+["ڈھونڈتا تھا جسے زمانے میں","وہ ملا دل کے آستانے میں"],
+["میں نے خود کو مٹا کے پایا ہے","اس کو دل میں بسا کے پایا ہے"],
+["عشقِ حق کا سرور کیا کہیے","دل میں رہتا ہے نور کیا کہیے"],
+["دل کی مسجد میں نور رہتا ہے","اس میں ہر دم حضور رہتا ہے"],
+["فنا کے بعد بقا کا سفر شروع ہوا","خودی کے بعد خدا کا سفر شروع ہوا"],
+["ہم نے مٹی میں جب نمو پائی","آسماں سے تبھی صدا آئی"],
+["نہ مسجد میں نہ بت خانے میں ملتا ہے","وہی دل کے ہر ویرانے میں ملتا ہے"],
+["درد کو اپنی دوا کر لیں گے","غم کو بھی ہم عطا کر لیں گے"],
+["آنکھ نم ہے مگر سکوں ہے دل میں","ایک اللہ کا جنوں ہے دل میں"],
+["ہر دعا کی قبولیت تو ہے","ہر وفا کی حقیقت تو ہے"]]
+};
+const all=[];let n=0;
+for(const t in P)P[t].forEach(p=>all.push({n:++n,t,p}));
+const nav=document.getElementById('nav'),list=document.getElementById('list');
+let cur="سب";
+function show(){
+  list.innerHTML=all.filter(x=>cur==="سب"||x.t===cur).map(x=>`<article class="c"><span class="n">${x.n}</span><p>${x.p[0]}</p><p>${x.p[1]}</p><span class="t">${x.t}</span></article>`).join('');
+  nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===cur));
+}
+nav.innerHTML=["سب",...Object.keys(P)].map(t=>`<button data-t="${t}">${t}</button>`).join('');
+nav.onclick=e=>{if(e.target.dataset.t){cur=e.target.dataset.t;show();scrollTo(0,0)}};
+show();
+</script>
+</body>
+</html>
